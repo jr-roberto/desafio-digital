@@ -23,7 +23,7 @@ function PesquisarClimaCidade() {
         redirect: "follow"
     };
 
-    fetch(`http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cidade}&lang=pt`, requestOptions)
+    fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cidade}&lang=pt`, requestOptions)
         .then((response) => response.json())
         .then((result) => RenderizaPagina(result))
         .catch((error) => console.error(error));

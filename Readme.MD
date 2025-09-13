@@ -14,14 +14,6 @@ Uma aplicação simples de clima em **HTML**, **CSS** e **JavaScript**, que perm
 
 ---
 
-## 📸 Captura de Tela
-
-> _(Adicione aqui uma imagem da sua aplicação em funcionamento)_  
-> Exemplo:  
-> ![preview](./screenshot.png)
-
----
-
 ## 🛠️ Tecnologias Utilizadas
 
 - HTML5
