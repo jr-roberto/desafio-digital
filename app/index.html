@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="app"></div>
-</body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/index.css" />
+    <title>APP de Clima</title>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  </head>
+  <body>
+    <header class="title-container">
+      <h1>Previsão do Tempo</h1>
+      <p>Consulte o clima da sua cidade em tempo real</p>
+    </header>
+    <main>
+      <section class="search-container">
+        <div class="input-icon">
+          <span
+            class="iconify icon"
+            data-icon="mdi:github"
+            data-inline="false"
+          ></span>
+
+          <input type="text" />
+        </div>
+        <button class="search-button">Buscar</button>
+      </section>
+
+      <section class="infos-container">
+        <h2>ESTADO</h2>
+
+        <div class="celsius-area">
+          <span class="mdi--cloud-outline"></span>
+          <span class="celsius-number"> 24° </span>
+        </div>
+        <p class="time-situation">Parcialmente nublado</p>
+      </section>
+    </main>
+  </body>
 </html>
