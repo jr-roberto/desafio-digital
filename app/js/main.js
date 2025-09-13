@@ -8,6 +8,11 @@
 //   .then((result) => console.log(result))
 //   .catch((error) => console.error(error));
 
+document.addEventListener("DOMContentLoaded", ()=>{
+    const btnBuscar = document.querySelector("button.search-button");
+    btnBuscar.addEventListener("click", ()=>{PesquisarClimaCidade()});
+});
+
 function PesquisarClimaCidade() {
     const cidade = document.querySelector("input#search-input").value;
 
@@ -48,18 +53,21 @@ function RenderizaPagina(data) {
           <div class="card-info">
             <span class="ion--water-outline"></span>
             <p class="card-title">Umidade</p>
-            <p class="card-value">${humidity}</p>
+            <p class="card-value">${humidity} %</p>
           </div>
+
           <div class="card-info">
             <span class="ic--round-air"></span>
             <p class="card-title">Vento</p>
-            <p class="card-value">${wind_kph}</p>
+            <p class="card-value">${wind_kph} km/h</p>
           </div>
           <div class="card-info">
             <span class="solar--eye-outline"></span>
             <p class="card-title">Visibilidade</p>
-            <p class="card-value">${gust_kph}</p>
+            <p class="card-value">${gust_kph} km</p>
           </div> 
+
+        </section>        
     `
 
     pageHtml.innerHTML = html;
