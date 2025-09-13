@@ -1,45 +1,41 @@
-// const requestOptions = {
-//   method: "GET",
-//   redirect: "follow"
-// };
-
-// fetch("http://api.weatherapi.com/v1/current.json?key=d24ba8718eaf4c24a97175344251309&q=Caucaia&lang=pt", requestOptions)
-//   .then((response) => response.text())
-//   .then((result) => console.log(result))
-//   .catch((error) => console.error(error));
-
-document.addEventListener("DOMContentLoaded", ()=>{
-    const btnBuscar = document.querySelector("button.search-button");
-    btnBuscar.addEventListener("click", ()=>{PesquisarClimaCidade()});
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    PesquisarClimaCidade();
+  });
 });
 
 function PesquisarClimaCidade() {
-    const cidade = document.querySelector("input#search-input").value;
+  const cidade = document.querySelector("input#search-input").value;
 
-    const API_KEY = "d24ba8718eaf4c24a97175344251309"
+  const API_KEY = "d24ba8718eaf4c24a97175344251309";
 
-    const requestOptions = {
-        method: "GET",
-        redirect: "follow"
-    };
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
 
-    fetch(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cidade}&lang=pt`, requestOptions)
-        .then((response) => response.json())
-        .then((result) => RenderizaPagina(result))
-        .catch((error) => console.error(error));
+  fetch(
+    `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${cidade}&lang=pt`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((result) => RenderizaPagina(result))
+    .catch((error) => console.error(error));
 }
 
 function RenderizaPagina(data) {
-    const pageHtml = document.querySelector("section.infos-container");
-    
-    const estado = data["location"]["region"];
-    const temperatura = Number(data["current"]["temp_c"]);
-    const clima = Number(data["current"]["condition"]["text"]);
-    const humidity = data["current"]["humidity"];
-    const wind_kph = data["current"]["wind_kph"];
-    const gust_kph = data["current"]["gust_kph"];
+  const pageHtml = document.querySelector("section.infos-container");
 
-    const html = `
+  const estado = data["location"]["region"];
+  const temperatura = Number(data["current"]["temp_c"]);
+  const clima = data["current"]["condition"]["text"];
+  const humidity = data["current"]["humidity"];
+  const wind_kph = data["current"]["wind_kph"];
+  const gust_kph = data["current"]["gust_kph"];
+
+  const html = `
         <h2>${estado}</h2>
 
         <div class="celsius-area">
@@ -68,7 +64,7 @@ function RenderizaPagina(data) {
           </div> 
 
         </section>        
-    `
+    `;
 
-    pageHtml.innerHTML = html;
+  pageHtml.innerHTML = html;
 }
