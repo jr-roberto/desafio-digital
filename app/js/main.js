@@ -1,7 +1,16 @@
+// const requestOptions = {
+//   method: "GET",
+//   redirect: "follow"
+// };
+
+// fetch("http://api.weatherapi.com/v1/current.json?key=d24ba8718eaf4c24a97175344251309&q=Caucaia&lang=pt", requestOptions)
+//   .then((response) => response.text())
+//   .then((result) => console.log(result))
+//   .catch((error) => console.error(error));
+
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("form");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
+  const btnBuscar = document.querySelector("button.search-button");
+  btnBuscar.addEventListener("click", () => {
     PesquisarClimaCidade();
   });
 });
